@@ -1,4 +1,4 @@
-# Nonebot-Webui-Docker
+# NoneBot-Webui-Docker
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/NonebotGUI/nonebot-flutter-webui-dashboard/refs/heads/main/lib/assets/logo.png" alt="nonebot-flutter-gui" width="320" height="320" /><br>
