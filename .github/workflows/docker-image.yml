@@ -1,11 +1,8 @@
 name: Build and Push Docker Image
 
 on:
-  workflow_dispatch:
-  repository_dispatch:
-    types:
-      - nonebot-agent-release
-      - nonebot-dashboard-release
+  schedule:
+    - cron: "0 0 * * *"
 
 env:
   IMAGE_NAME: myxuebi/nonebot-webui
