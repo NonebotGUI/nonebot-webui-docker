@@ -13,7 +13,7 @@
 ## ⚙️安装容器
 ### 命令行安装运行 （推荐）
 ```shell
-docker run -d  \
+sudo docker run -d  \
     -p 8025:8025 \
     -p 2519:2519 \
     --name nonebot-webui \
