@@ -8,6 +8,8 @@
     ✨ NoneBot Webui Docker安装版本 ✨
 </div>
 
+[DockerHub](https://hub.docker.com/r/myxuebi/nonebot-webui)
+
 ## ⚙️安装容器
 ### 命令行安装运行 （推荐）
 ```shell
@@ -44,6 +46,11 @@ sudo docker restart nonebot-webui
 ```
 
 ### 修改配置文件
-所有配置文件皆在容器内，可进入修改或挂载
-dashboard配置文件：/app/dashboard/config.json
+所有配置文件皆在容器内，可进入修改或挂载 
+
+dashboard配置文件：/app/dashboard/config.json 
+
 agent配置文件：/app/agent/config.json
+
+## 🖼️ 登录
+WebUI地址：http://<宿主机IP>:8025/
