@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: nonebot-webui
+  IMAGE_NAME: myxuebi/nonebot-webui
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
