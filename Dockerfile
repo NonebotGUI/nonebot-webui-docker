@@ -8,10 +8,8 @@ EXPOSE 2519
 COPY entrypoint.sh /app/
 COPY cpwd.sh /app/
 
-RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list \
-    && apt update \
+RUN apt update \
     && apt install curl python3 python3-pip python3-venv nano unzip -y \
-    && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
     && pip install nb-cli \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
@@ -28,6 +26,7 @@ RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.l
     && curl -OL $DOWN_WEB \
     && unzip dashboard-index-canvaskit.zip \
     && chmod 777 dashboard-linux \
-    && rm dashboard-index-canvaskit.zip
+    && rm dashboard-index-canvaskit.zip \
+    && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple
 
 ENTRYPOINT ["bash", "entrypoint.sh"]
