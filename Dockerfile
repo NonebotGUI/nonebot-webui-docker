@@ -28,8 +28,10 @@ RUN apt update \
     && chmod 777 dashboard-linux \
     && rm dashboard-index-canvaskit.zip \
     && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
-    && ./dashboard-linux & \
+    && ./dashboard-linux & || true \
     && sleep 3 \
+    && PIDS=$(pgrep -f dashboard) || true \
+    && kill -9 $PIDS || true \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json
 
 
