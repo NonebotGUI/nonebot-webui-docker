@@ -27,6 +27,10 @@ RUN apt update \
     && unzip dashboard-index-canvaskit.zip \
     && chmod 777 dashboard-linux \
     && rm dashboard-index-canvaskit.zip \
-    && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple
+    && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
+    && ./dashboard-linux & \
+    && sleep 3 \
+    && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json
+
 
 ENTRYPOINT ["bash", "entrypoint.sh"]
