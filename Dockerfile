@@ -31,7 +31,7 @@ RUN apt update \
     && ./dashboard-linux & \
     && sleep 3 \
     && PIDS=$(pgrep -f dashboard) \
-    && kill -9 $PIDS || true \
+    && kill -9 $PIDS \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json
 
 
