@@ -15,6 +15,7 @@ RUN apt update \
     && mkdir -p /app/dashboard \
     && cd /app/agent \
     && ARCH=$(uname -m) \
+    && echo $ARCH \
     && if [ "$ARCH" = "x86_64"; then ARCH="amd64"; elif [ "$ARCH" = "aarch64"; then ARCH="arm64"; else echo "Unsupported architecture"; exit 1; fi \
     && DOWN=$(curl https://api.github.com/repos/NonebotGUI/nonebot-agent/releases/latest | grep "browser_download_url" | grep linux | grep $ARCH | cut -d '"' -f 4) \
     && curl -OL $DOWN \
