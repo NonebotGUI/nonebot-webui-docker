@@ -25,7 +25,6 @@ RUN apt update \
     fi \
     && DOWN=$(curl https://api.github.com/repos/NonebotGUI/nonebot-agent/releases/latest | grep "browser_download_url" | grep linux | grep $ARCH | cut -d '"' -f 4) \
     && curl -OL $DOWN \
-    && mv agent-linux-$ARCH agent-linux-$ARCH \
     && chmod 777 agent-linux-$ARCH \
     && ./agent-linux-$ARCH || true \
     && sed -i 's/"token": ""/"token": "123456"/g' config.json \
@@ -35,7 +34,6 @@ RUN apt update \
     && curl -OL $DOWN_MAIN \
     && curl -OL $DOWN_WEB \
     && unzip dashboard-index-canvaskit.zip \
-    && mv dashboard-linux-$ARCH dashboard-linux-$ARCH \
     && chmod 777 dashboard-linux-$ARCH \
     && rm dashboard-index-canvaskit.zip \
     && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
