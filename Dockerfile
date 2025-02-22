@@ -11,7 +11,7 @@ COPY init.sh /
 VOLUME /app
 
 RUN apk update \
-    && apk add --no-cache curl python3 py3-pip py3-virtualenv nano unzip libc6-compat  \
+    && apk add --no-cache curl gcc python3 py3-pip py3-virtualenv nano unzip libc6-compat  \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
     && python3 -m venv /app/venv \
