@@ -50,8 +50,11 @@ WebUI地址：http://<宿主机IP>:8025/
 
 ## ⚠️ 已知问题
 在 protocol 模式下（默认） 有可能出现CPU、内存无法显示正常值的情况
-![bug](img/bug.png)
+![bug](img/bug.png) 
 
-需要静等作者修复~
-但是好像得等等了？
+
+需要静等作者修复~ 
+
+但是好像得等等了？ 
+
 ![yefeng](img/msg.png)
