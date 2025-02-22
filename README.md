@@ -35,7 +35,8 @@ sudo docker run -d -p 8025:8025 -p 2519:2519 -v /opt/nb-webui:/data nonebot-webu
 
 ## 📑 配置
 ### 修改密码
-1.在 /opt/nb-webui/dashboard/config.json 和 /opt/nb-webui/agent/config.json 内的password值内修改
+1.在 /opt/nb-webui/dashboard/config.json 和 /opt/nb-webui/agent/config.json 内的password值内修改 
+
 2. sudo docker restart nonebot-webui 重启服务就可以修改成功
 
 ### 修改配置文件
