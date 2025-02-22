@@ -10,6 +10,6 @@ else
 fi
 source /data/venv/bin/activate
 cd /data/agent
-/app/agent/agent-linux-$ARCH &
+/data/agent/agent-linux-$ARCH &
 cd /data/dashboard
-/app/dashboard/dashboard-linux-$ARCH
+/data/dashboard/dashboard-linux-$ARCH
