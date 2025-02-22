@@ -6,7 +6,6 @@ EXPOSE 8025
 EXPOSE 2519
 
 COPY entrypoint.sh /app/
-COPY cpwd.sh /app/
 COPY init.sh /
 
 VOLUME /app
