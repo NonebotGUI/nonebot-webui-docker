@@ -8,11 +8,15 @@ EXPOSE 2519
 COPY entrypoint.sh /app/
 COPY cpwd.sh /app/
 
+VOLUME /app
+
 RUN apk update \
-    && apk add --no-cache curl python3 py3-pip py3-venv nano unzip \
-    && pip install nb-cli \
+    && apk add --no-cache curl python3 py3-pip py3-virtualenv nano unzip libc6-compat  \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
+    && python3 -m venv /app/venv \
+    && source /app/venv/bin/activate \
+    && pip install nb-cli \
     && cd /app/agent \
     && ARCH=$(uname -m) \
     && if [ "$ARCH" = "x86_64" ]; then \
@@ -37,7 +41,7 @@ RUN apk update \
     && chmod 777 dashboard-linux-$ARCH \
     && rm dashboard-index-canvaskit.zip \
     && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
-    && timeout --signal=SIGKILL 3s ./dashboard-linux-$ARCH || true \
+    && timeout -s SIGKILL 3s ./dashboard-linux-$ARCH || true \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json
 
 ENTRYPOINT ["sh", "entrypoint.sh"]

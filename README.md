@@ -16,6 +16,7 @@
 sudo docker run -d  \
     -p 8025:8025 \
     -p 2519:2519 \
+    -v /opt/nb-webui:/app \
     --name nonebot-webui \
     --restart=always \
     myxuebi/nonebot-webui:latest
