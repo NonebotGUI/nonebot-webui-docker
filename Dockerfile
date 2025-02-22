@@ -7,6 +7,7 @@ EXPOSE 2519
 
 COPY entrypoint.sh /app/
 COPY cpwd.sh /app/
+COPY init.sh /
 
 VOLUME /app
 
@@ -44,4 +45,4 @@ RUN apk update \
     && timeout -s SIGKILL 3s ./dashboard-linux-$ARCH || true \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json
 
-ENTRYPOINT ["sh", "entrypoint.sh"]
+ENTRYPOINT ["sh", "/init.sh"]

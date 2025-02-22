@@ -16,7 +16,7 @@
 sudo docker run -d  \
     -p 8025:8025 \
     -p 2519:2519 \
-    -v /opt/nb-webui:/app \
+    -v /opt/nb-webui:/data \
     --name nonebot-webui \
     --restart=always \
     myxuebi/nonebot-webui:latest
@@ -30,7 +30,7 @@ sudo docker run -d  \
 git clone https://github.com/NonebotGUI/nonebot-webui-docker
 cd nonebot-webui-docker
 sudo docker build -t nonebot-webui .
-sudo docker run -d -p 8025:8025 -p 2519:2519 nonebot-webui
+sudo docker run -d -p 8025:8025 -p 2519:2519 -v /opt/nb-webui:/data nonebot-webui
 ```
 
 ## 📑 配置
