@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM alpine:3.18
 
 WORKDIR /app
 
@@ -8,8 +8,8 @@ EXPOSE 2519
 COPY entrypoint.sh /app/
 COPY cpwd.sh /app/
 
-RUN apt update \
-    && apt install curl python3 python3-pip python3-venv nano unzip -y \
+RUN apk update \
+    && apk add --no-cache curl python3 py3-pip py3-venv nano unzip \
     && pip install nb-cli \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
@@ -40,4 +40,4 @@ RUN apt update \
     && timeout --signal=SIGKILL 3s ./dashboard-linux-$ARCH || true \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json
 
-ENTRYPOINT ["bash", "entrypoint.sh"]
+ENTRYPOINT ["sh", "entrypoint.sh"]
