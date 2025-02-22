@@ -35,23 +35,23 @@ sudo docker run -d -p 8025:8025 -p 2519:2519 -v /opt/nb-webui:/data nonebot-webu
 
 ## 📑 配置
 ### 修改密码
-```shell
-# 1.进入容器
-sudo docker exec -it nonebot-webui /bin/bash
-# 2.执行密码修改脚本
-bash cpwd.sh
-# 3.退出容器
-exit
-# 4.重启容器
-sudo docker restart nonebot-webui
-```
+1.在 /opt/nb-webui/dashboard/config.json 和 /opt/nb-webui/agent/config.json 内的password值内修改
+2. sudo docker restart nonebot-webui 重启服务就可以修改成功
 
 ### 修改配置文件
-所有配置文件皆在容器内，可进入修改或挂载 
+已挂载到本地
 
-dashboard配置文件：/app/dashboard/config.json 
+dashboard配置文件：/opt/nb-webui/dashboard/config.json 
 
-agent配置文件：/app/agent/config.json
+agent配置文件：/opt/nb-webui/agent/config.json
 
 ## 🖼️ 登录
 WebUI地址：http://<宿主机IP>:8025/
+
+## ⚠️ 已知问题
+在 protocol 模式下（默认） 有可能出现CPU、内存无法显示正常值的情况
+![bug](img/bug.png)
+
+需要静等作者修复~
+但是好像得等等了？
+![yefeng](img/msg.png)
