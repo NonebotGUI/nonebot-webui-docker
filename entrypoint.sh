@@ -8,6 +8,7 @@ else
     echo "Unsupported architecture"
     exit 1
 fi
+source /app/venv/bin/activate
 cd /app/agent
 /app/agent/agent-linux-$ARCH &
 cd /app/dashboard
