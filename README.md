@@ -8,9 +8,17 @@
     ✨ NoneBot Webui Docker安装版本 ✨
 </div>
 
-[DockerHub](https://hub.docker.com/r/myxuebi/nonebot-webui)
+[DockerHub](https://hub.docker.com/r/myxuebi/nonebot-webui) 
+
+✨容器已更换为Debian系统,可放心使用✨
 
 ## ⚙️安装容器
+
+#### Docker加速站(自建)
+使用文档：[Docker加速服务](https://docker.myxuebi.top/) 
+
+加速URL: ```https://docker.myxuebi.top/```
+
 ### 命令行安装运行 （推荐）
 ```shell
 sudo docker run -d  \
