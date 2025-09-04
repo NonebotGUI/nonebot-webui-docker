@@ -17,7 +17,7 @@
 #### Docker加速站(自建)
 使用文档：[Docker加速服务](https://docker.myxuebi.top/) 
 
-加速URL: ```https://docker.myxuebi.top/```
+加速URL： ```https://docker-hub.myxuebi.top```
 
 ### 命令行安装运行 （推荐）
 ```shell
