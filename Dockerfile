@@ -1,4 +1,4 @@
-FROM alpine
+FROM debian
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY init.sh /
 VOLUME /app
 
 RUN apk update \
-    && apk add --no-cache curl gcc python3 py3-pip py3-virtualenv nano unzip libc6-compat  \
+    && apt install curl python3 python3-pip python3-venv nano unzip -y \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
     && python3 -m venv /app/venv \
