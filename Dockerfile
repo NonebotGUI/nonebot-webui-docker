@@ -15,8 +15,6 @@ RUN apt update \
     && apt install curl python3 python3-pip python3-venv nano unzip pipx -y \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
-    && # python3 -m venv /app/venv \
-    && # source /app/venv/bin/activate \
     && pipx install nb-cli \
     && pipx ensurepath \
     && source ~/.bashrc \
