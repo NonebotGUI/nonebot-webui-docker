@@ -9,7 +9,7 @@ EXPOSE 2519
 COPY entrypoint.sh /app/
 COPY init.sh /
 
-VOLUME /app
+VOLUME /data
 
 RUN apt update \
     && apt install curl python3 python3-pip python3-venv nano unzip pipx -y \
@@ -20,7 +20,6 @@ RUN apt update \
     && pipx install nb-cli \
     && pipx ensurepath \
     && source ~/.bashrc \
-    && apt insall python3-nb-cli -y \
     && cd /app/agent \
     && ARCH=$(uname -m) \
     && if [ "$ARCH" = "x86_64" ]; then \
