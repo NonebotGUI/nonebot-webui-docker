@@ -10,7 +10,7 @@ COPY init.sh /
 
 VOLUME /app
 
-RUN apk update \
+RUN apt update \
     && apt install curl python3 python3-pip python3-venv nano unzip -y \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
