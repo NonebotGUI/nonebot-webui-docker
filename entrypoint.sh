@@ -8,7 +8,9 @@ else
     echo "Unsupported architecture"
     exit 1
 fi
-source /data/venv/bin/activate
+
+source ~/.bashrc
+# source /data/venv/bin/activate
 cd /data/agent
 /data/agent/agent-linux-$ARCH &
 cd /data/dashboard

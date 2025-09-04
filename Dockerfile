@@ -12,12 +12,15 @@ COPY init.sh /
 VOLUME /app
 
 RUN apt update \
-    && apt install curl python3 python3-pip python3-venv nano unzip -y \
+    && apt install curl python3 python3-pip python3-venv nano unzip pipx -y \
     && mkdir -p /app/agent \
     && mkdir -p /app/dashboard \
-    && python3 -m venv /app/venv \
-    && source /app/venv/bin/activate \
-    && pip install nb-cli \
+    && # python3 -m venv /app/venv \
+    && # source /app/venv/bin/activate \
+    && pipx install nb-cli \
+    && pipx ensurepath \
+    && source ~/.bashrc \
+    && apt insall python3-nb-cli -y \
     && cd /app/agent \
     && ARCH=$(uname -m) \
     && if [ "$ARCH" = "x86_64" ]; then \
