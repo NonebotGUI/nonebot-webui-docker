@@ -1,4 +1,5 @@
 FROM debian
+SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
 
