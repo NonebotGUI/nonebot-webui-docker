@@ -8,7 +8,9 @@
     ✨ NoneBot Webui Docker安装版本 ✨
 </div>
 
-[DockerHub](https://hub.docker.com/r/myxuebi/nonebot-webui) 
+<a title="Crowdin" target="_blank" href="https://hub.docker.com/r/myxuebi/nonebot-webui">
+    <img src="https://img.shields.io/docker/pulls/myxuebi/nonebot-webui">
+</a>
 
 ✨容器已更换为Debian系统,可放心使用✨
 
