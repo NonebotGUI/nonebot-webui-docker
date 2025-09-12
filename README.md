@@ -63,7 +63,8 @@ agent配置文件：/opt/nb-webui/agent/config.json
 
 
 ### Docker 磁盘挂载说明
-## ！！注意！！：未挂载目录前只能将bot数据放在/data目录下，否则会出错或造成严重后果
+> [!warning] 
+> 未挂载目录前只能将bot数据放在/data目录下，否则会出错或造成严重后果
 #### 已运行容器后追加挂载目录
 
 1. 先停止并删除原有容器（不会影响本地已挂载的数据）：
@@ -99,9 +100,18 @@ sudo docker run -d  \
 ```
 就是把本地的/disk1/bot文件夹挂载到docker里面了
 
+> [!warning] 
 > 注意：不要删除或修改原有的挂载参数，否则原有数据会丢失。
 
 如果你希望将 bot 的数据（如配置、插件、日志等）永久存放在本地磁盘上，防止容器删除后数据丢失，可以通过 Docker 的挂载功能将本地目录映射到容器内的数据目录。
+
+## 🗑️ 彻底删除容器(此操作会删除所有数据)
+```shell
+sudo docker stop nonebot-webui
+sudo docker rm nonebot-webui
+sudo docker rmi -f myxuebi/nonebot-webui
+sudo rm -rf /opt/nb-webui/
+```
 
 ## ⚠️ 已知问题
 在 protocol 模式下（默认） 有可能出现CPU、内存无法显示正常值的情况
