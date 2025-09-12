@@ -46,7 +46,7 @@ RUN apt update \
     && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
     && timeout -s SIGKILL 3s ./dashboard-linux-$ARCH || true \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json \
-    && sed -i "s/\"token\": \"\"/\"token\": \"$TOKEN\"/g" config.json \
-    && sed -i "s/\"password\": \"\"/\"password\": \"$TOKEN\"/g" config.json
+    && sed -i "s/\"token\": \".*\"/\"token\": \"$TOKEN\"/g" config.json \
+    && sed -i "s/\"password\": \".*\"/\"password\": \"$TOKEN\"/g" config.json
 
 ENTRYPOINT ["sh", "/init.sh"]
