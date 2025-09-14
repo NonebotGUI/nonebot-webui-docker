@@ -31,7 +31,7 @@ RUN apt update \
     && DOWN=$(curl https://api.github.com/repos/NonebotGUI/nonebot-agent/releases/latest | grep "browser_download_url" | grep linux | grep $ARCH | cut -d '"' -f 4) \
     && curl -OL $DOWN \
     && chmod 777 agent-linux-$ARCH \
-    && ./agent-linux-$ARCH || true \
+    && timeout -s SIGKILL 3s ./agent-linux-$ARCH || true \
     && TOKEN=$(head -c 32 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 32) \
     && sed -i "s/\"token\": \".*\"/\"token\": \"$TOKEN\"/g" config.json \
     && sed -i 's/"nbcli":"default"/"nbcli":"\/root\/.local\/bin\/nb"/g' config.json \
