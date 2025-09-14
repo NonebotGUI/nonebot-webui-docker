@@ -6,6 +6,6 @@ if [ -z "$(ls -A /data)" ]; then
     sed -i "s/\"token\": \".*\"/\"token\": \"$TOKEN\"/g" /data/agent/config.json
     sed -i "s/\"token\": \".*\"/\"token\": \"$TOKEN\"/g" /data/dashboard/config.json
     sed -i "s/\"password\": \".*\"/\"password\": \"$TOKEN\"/g" /data/dashboard/config.json
-    sed -i '0,/"host":/s/"host": "[^"]*"/"host": "0.0.0.0"/' config.json
+    sed -i '1,3s/"host": "[^"]*"/"host": "0.0.0.0"/' /data/dashboard/config.json
 fi
 sh /data/entrypoint.sh
