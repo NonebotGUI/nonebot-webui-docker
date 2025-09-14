@@ -32,8 +32,6 @@ RUN apt update \
     && curl -OL $DOWN \
     && chmod 777 agent-linux-$ARCH \
     && timeout -s SIGKILL 6s ./agent-linux-$ARCH || true \
-    && TOKEN=$(head -c 32 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 32) \
-    && sed -i "s/\"token\": \".*\"/\"token\": \"$TOKEN\"/g" config.json \
     && sed -i 's/"nbcli":"default"/"nbcli":"\/root\/.local\/bin\/nb"/g' config.json \
     && cd /app/dashboard \
     && DOWN_MAIN=$(curl https://api.github.com/repos/NonebotGUI/nonebot-flutter-webui-dashboard/releases/latest | grep "browser_download_url" | grep linux | grep $ARCH | cut -d '"' -f 4) \
@@ -46,7 +44,5 @@ RUN apt update \
     && pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple \
     && timeout -s SIGKILL 3s ./dashboard-linux-$ARCH || true \
     && sed -i 's/"connectionMode": 1/"connectionMode": 2/g' config.json \
-    && sed -i "s/\"token\": \".*\"/\"token\": \"$TOKEN\"/g" config.json \
-    && sed -i "s/\"password\": \".*\"/\"password\": \"$TOKEN\"/g" config.json
 
 ENTRYPOINT ["sh", "/init.sh"]
