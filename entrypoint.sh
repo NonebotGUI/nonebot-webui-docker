@@ -9,7 +9,7 @@ else
     exit 1
 fi
 
-source ~/.bashrc
+# source ~/.bashrc
 # source /data/venv/bin/activate
 cd /data/agent
 /data/agent/agent-linux-$ARCH &
