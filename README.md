@@ -17,9 +17,11 @@
 ## ⚙️安装容器
 
 #### Docker加速站(自建)
-使用文档：[Docker加速服务](https://docker.myxuebi.top/) 
+~~使用文档：[Docker加速服务](https://docker.myxuebi.top/)~~
 
-加速URL： ```https://docker-hub.myxuebi.top```
+~~加速URL： ```https://docker-hub.myxuebi.top```~~ 
+
+大家找别的镜像用吧 这个已经崩掉力~
 
 ### 命令行安装运行 （推荐）
 ```shell
